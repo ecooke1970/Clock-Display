@@ -85,7 +85,7 @@ public class ClockDisplay
     {
         if(hours.getValue() >= 1 && hours.getValue() < 13)
         {
-            displayString = hours.getDisplayValue() + ":" + 
+            displayString = "" + hours.getValue() + ":" + 
                         minutes.getDisplayValue() + ampm;
         }
         else
