@@ -53,6 +53,7 @@ public class ClockDisplay
         minutes.increment();
         if(minutes.getValue() == 0) {  // it just rolled over!
             hours.increment();
+            setAmpm(hours.getValue());
         }
         updateDisplay();
     }
@@ -82,22 +83,30 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
+        if(hours.getValue() >= 1 && hours.getValue() < 13)
+        {
+            displayString = hours.getDisplayValue() + ":" + 
+                        minutes.getDisplayValue() + ampm;
+        }
+        else
+        {
+            displayString = "" + Math.abs((hours.getValue() - 12)) + ":" + 
+                        minutes.getDisplayValue() + ampm;
+        }
     }
     
     /**
-     * 
+     * Set the ampm variable based on the hour from a 24 hours clock
      */
     private void setAmpm(int hour)
     {
         if(hour >= 0 && hour < 12)
         {
-            this.ampm = "AM";
+            ampm = "AM";
         }
         else
         {
-            this.ampm = "PM";
+            ampm = "PM";
         }
     }
 }
