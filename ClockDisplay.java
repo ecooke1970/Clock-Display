@@ -17,6 +17,7 @@ public class ClockDisplay
     private NumberDisplay hours;
     private NumberDisplay minutes;
     private String displayString;    // simulates the actual display
+    private String ampm;
     
     /**
      * Constructor for ClockDisplay objects. This constructor 
@@ -26,6 +27,7 @@ public class ClockDisplay
     {
         hours = new NumberDisplay(24);
         minutes = new NumberDisplay(60);
+        ampm = "AM";
         updateDisplay();
     }
 
@@ -38,6 +40,7 @@ public class ClockDisplay
     {
         hours = new NumberDisplay(24);
         minutes = new NumberDisplay(60);
+        setAmpm(hour);
         setTime(hour, minute);
     }
 
@@ -62,6 +65,7 @@ public class ClockDisplay
     {
         hours.setValue(hour);
         minutes.setValue(minute);
+        setAmpm(hour);
         updateDisplay();
     }
 
@@ -80,5 +84,20 @@ public class ClockDisplay
     {
         displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue();
+    }
+    
+    /**
+     * 
+     */
+    private void setAmpm(int hour)
+    {
+        if(hour >= 0 && hour < 12)
+        {
+            this.ampm = "AM";
+        }
+        else
+        {
+            this.ampm = "PM";
+        }
     }
 }
