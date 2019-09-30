@@ -108,8 +108,8 @@ public class ClockDisplay
      */
     private void setAmpm(String ampm)
     {
-        if(ampm == "AM" || ampm == "am" || ampm == "Am" || ampm == "aM")
-        //if(ampm.toUpperCase() == "AM")
+        //if(ampm == "AM" || ampm == "am" || ampm == "Am" || ampm == "aM")
+        if(ampm.toUpperCase().equals("AM"))
         {
             this.ampm = "AM";
         }
