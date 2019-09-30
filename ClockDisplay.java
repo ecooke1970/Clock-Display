@@ -40,7 +40,6 @@ public class ClockDisplay
     {
         hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
-        setAmpm(ampm);
         setTime(hour, minute, ampm);
     }
 
